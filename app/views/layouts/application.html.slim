@@ -1,0 +1,13 @@
+doctype html
+html.h-100
+  head
+    = render 'layouts/shared/head'
+
+  body.d-flex.flex-column.h-100
+    main.flex-grow-1
+      .container.mt-4
+        .row.justify-content-center
+          .col
+            = yield
+
+    = render 'layouts/shared/footer'
