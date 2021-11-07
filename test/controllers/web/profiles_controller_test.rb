@@ -3,21 +3,30 @@
 require 'test_helper'
 
 class Web::ProfilesControllerTest < ActionDispatch::IntegrationTest
-  # test 'should get edit' do
-  #   get web_profiles_edit_url
+  setup do
+    @user = users(:one)
+    login_with_user(@user)
+    @new_email = Faker::Internet.email
+  end
 
-  #   assert_response :success
-  # end
+  test 'should get show' do
+    get profile_path
 
-  # test 'should get update' do
-  #   get web_profiles_update_url
-  #
-  #   assert_response :success
-  # end
+    assert_response :success
+  end
 
-  # test 'should get show' do
-  #   get web_profiles_show_url
+  test 'should get edit' do
+    get edit_profile_url
 
-  #   assert_response :success
-  # end
+    assert_response :success
+  end
+
+  test 'should get update' do
+    patch profile_url, params: { user: { email: @new_email } }
+
+    assert_redirected_to profile_path
+
+    @user.reload
+    assert { @new_email == @user.email }
+  end
 end

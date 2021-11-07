@@ -53,6 +53,7 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 3.26'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
   gem 'minitest-power_assert'
   gem 'selenium-webdriver'
   gem 'shoulda', '~> 4.0'
