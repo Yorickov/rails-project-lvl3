@@ -5,6 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Dotenv::Railtie.load if %w[development test].include? ENV['RAILS_ENV']
 
 module RailsProjectLvl3
   class Application < Rails::Application
@@ -19,10 +20,7 @@ module RailsProjectLvl3
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.generators do |g|
-      g.test_framework :minitest,
-                       view_specs: false,
-                       helper_specs: false,
-                       routing_specs: false
+      g.test_framework :test_unit, helper: false
     end
   end
 end

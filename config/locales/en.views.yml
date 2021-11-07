@@ -4,8 +4,21 @@ en:
       nav:
         home: Home
         log_in: Log in
+        log_out: Log out
         sign_up: Sign up
       footer:
         project_name: Yorickov. Hexlet Rails project-3
 
   web:
+    sessions:
+      new:
+        title: Sign in
+        description: Via social networks
+        github: Github
+    users:
+      new:
+        title: Sign up
+        has_account: Has account?
+        log_in: Log in
+        description: Via social networks
+        github: Github

@@ -10,5 +10,8 @@ header
         ul.navbar-nav
           li.nav-item = link_to t('.home'), root_path, class: 'nav-link'
         ul.navbar-nav.ms-auto
-          li.nav-item = link_to t('.log_in'), root_path, class: 'nav-link'
-          li.nav-item = link_to t('.sign_up'), root_path, class: 'nav-link'
+          - if user_signed_in?
+            li.nav-item = link_to t('.log_out'), session_path, method: :delete, class: 'nav-link'
+          - else
+            li.nav-item = link_to t('.log_in'), new_session_path, class: 'nav-link'
+            li.nav-item = link_to t('.sign_up'), new_user_path, class: 'nav-link'

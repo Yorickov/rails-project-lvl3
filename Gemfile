@@ -33,6 +33,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'dotenv-rails'
   gem 'pry-rails'
   gem 'sqlite3', '~> 1.4'
 end
@@ -54,6 +55,7 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'minitest-power_assert'
   gem 'selenium-webdriver'
+  gem 'shoulda', '~> 4.0'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
@@ -65,3 +67,7 @@ gem 'simple_form'
 gem 'slim-rails'
 
 gem 'rollbar'
+
+gem 'omniauth'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
+gem 'omniauth-rails_csrf_protection'
