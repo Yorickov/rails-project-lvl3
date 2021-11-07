@@ -73,3 +73,5 @@ gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth-rails_csrf_protection'
 
 gem 'flash_rails_messages'
+
+gem 'enumerize'
