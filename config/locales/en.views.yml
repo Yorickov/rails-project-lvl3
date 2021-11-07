@@ -6,6 +6,7 @@ en:
         log_in: Log in
         log_out: Log out
         sign_up: Sign up
+        profile: Profile
       footer:
         project_name: Yorickov. Hexlet Rails project-3
 
@@ -22,3 +23,11 @@ en:
         log_in: Log in
         description: Via social networks
         github: Github
+    profiles:
+      show:
+        title: Profile
+        edit_profile: Edit profile
+      edit:
+        title: Update Profile
+      update:
+        success: Updated successfully

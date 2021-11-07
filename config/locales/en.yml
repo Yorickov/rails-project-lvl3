@@ -1,2 +1,6 @@
 en:
   title: Bulletin Board
+
+  messages:
+    welcome: "Welcome to the Board, %{user}"
+    goodbye: See you later
