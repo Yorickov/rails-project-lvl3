@@ -1,0 +1,11 @@
+en:
+  layouts:
+    shared:
+      nav:
+        home: Home
+        log_in: Log in
+        sign_up: Sign up
+      footer:
+        project_name: Yorickov. Hexlet Rails project-3
+
+  web:

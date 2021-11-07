@@ -1,0 +1,14 @@
+header
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light.mb-1
+    .container-fluid
+      = link_to t('title'), root_path, class: 'navbar-brand'
+
+      button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarNavDropdown' aria-expanded='false' aria-controls='navbarNavDropdown')
+        span.navbar-toggler-icon
+
+      .collapse.navbar-collapse#navbarNavDropdown
+        ul.navbar-nav
+          li.nav-item = link_to t('.home'), root_path, class: 'nav-link'
+        ul.navbar-nav.ms-auto
+          li.nav-item = link_to t('.log_in'), root_path, class: 'nav-link'
+          li.nav-item = link_to t('.sign_up'), root_path, class: 'nav-link'
