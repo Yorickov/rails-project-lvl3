@@ -5,10 +5,11 @@ Rails.application.routes.draw do
     root 'home#index'
 
     get '/auth/:provider/callback', to: 'sessions#create'
+    resource :session, only: %i[new destroy]
 
     resources :users, only: %i[new]
     resource :profile, only: %i[show edit update]
 
-    resource :session, only: %i[new destroy]
+    resources :bulletins, only: %i[show new create]
   end
 end

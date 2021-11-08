@@ -1,16 +1,17 @@
 = content_for :title do
   = t('.title')
 
-.col-sm-8
-  .card.text-center.mb-4
-    .card-body
-      .card-text.mb-2
-        - unless user_signed_in?
-          span = t('.has_account')
-          = link_to t('.log_in'), new_session_path, class: 'card-link ms-2 text-decoration-none'
+.row.justify-content-center
+  .col-sm-8
+    .card.text-center.mb-4
+      .card-body
+        .card-text.mb-2
+          - unless user_signed_in?
+            span = t('.has_account')
+            = link_to t('.log_in'), new_session_path, class: 'card-link ms-2 text-decoration-none'
 
-      .card-text.mb-2
-        small.text-muted = t('.description')
+        .card-text.mb-2
+          small.text-muted = t('.description')
 
-      = button_to t('.github'), '/auth/github', method: :post, class: 'btn btn-sm btn-outline-primary text-center'
+        = button_to t('.github'), '/auth/github', method: :post, class: 'btn btn-sm btn-outline-primary text-center'
 

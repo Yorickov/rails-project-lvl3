@@ -1,2 +1,5 @@
-h1 Web::Home#index
-p Find me in app/views/web/home/index.html.slim
+= content_for :title do
+  = t('.title')
+
+.row.row-cols-1.row-cols-md-3.g-4
+  = render @bulletins

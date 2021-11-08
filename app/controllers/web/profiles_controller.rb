@@ -8,8 +8,8 @@ class Web::ProfilesController < ApplicationController
   def edit; end
 
   def update
-    if current_user.update(profile_params)
-      redirect_to profile_path, notice: t('.success')
+    if current_user.update(permitted_params)
+      redirect_to profile_path, notice: t('messages.created.success')
     else
       render :edit, status: :unprocessable_entity
     end
@@ -17,7 +17,7 @@ class Web::ProfilesController < ApplicationController
 
   private
 
-  def profile_params
+  def permitted_params
     params.require(:user).permit(:email)
   end
 end

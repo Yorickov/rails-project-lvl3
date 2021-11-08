@@ -7,6 +7,7 @@ en:
         log_out: Log out
         sign_up: Sign up
         profile: Profile
+        add_bulletin: Add bulletin
       footer:
         project_name: Yorickov. Hexlet Rails project-3
 
@@ -29,5 +30,10 @@ en:
         edit_profile: Edit profile
       edit:
         title: Update Profile
-      update:
-        success: Updated successfully
+    bulletins:
+      show:
+        title: Bulletin
+      new:
+        title: Create bulletin
+      indes:
+        title: Bulletins

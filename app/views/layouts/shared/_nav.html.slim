@@ -9,7 +9,8 @@ header
       .collapse.navbar-collapse#navbarNavDropdown
         ul.navbar-nav
           li.nav-item = link_to t('.home'), root_path, class: 'nav-link'
-
+          - if user_signed_in?
+            li = link_to t('.add_bulletin'), new_bulletin_path, class: 'nav-link active'
         ul.navbar-nav.ms-auto
           - if user_signed_in?
             li.nav-item.active.dropdown

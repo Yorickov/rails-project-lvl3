@@ -1,0 +1,8 @@
+.col
+   .card
+      / <img src="..." class="card-img-top" alt="...">
+      p Image
+      .card-body
+        h5.card-title = link_to bulletin.title, bulletin_path(bulletin)
+        p.card-text = bulletin.description
+        small.me-3.text-muted = time_ago(bulletin.updated_at)

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_11_08_184413) do
 
   create_table "bulletins", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.text "description"
     t.integer "category_id", null: false
     t.integer "user_id", null: false

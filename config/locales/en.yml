@@ -3,4 +3,8 @@ en:
 
   messages:
     welcome: "Welcome to the Board, %{user}"
-    goodbye: See you later
+    goodbye: See you laternk
+    create:
+      success: Created successfully
+    update:
+      success: Updated successfully
