@@ -14,7 +14,7 @@ class Web::BulletinsController < ApplicationController
   def create
     @bulletin = current_user.bulletins.build(permitted_params)
     if @bulletin.save
-      redirect_to @bulletin, notice: 'messages.created.success'
+      redirect_to @bulletin, notice: 'messages.create.success'
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,6 +23,6 @@ class Web::BulletinsController < ApplicationController
   private
 
   def permitted_params
-    params.require(:bulletin).permit(:title, :description, :category_id)
+    params.require(:bulletin).permit(:title, :description, :category_id, :image)
   end
 end

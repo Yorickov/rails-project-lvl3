@@ -1,7 +1,7 @@
 .col
    .card
-      / <img src="..." class="card-img-top" alt="...">
-      p Image
+      - if bulletin.image.representable?
+         = image_tag bulletin.image, alt: '...', title: bulletin.title, class: 'card-img-top'
       .card-body
         h5.card-title = link_to bulletin.title, bulletin_path(bulletin)
         p.card-text = bulletin.description

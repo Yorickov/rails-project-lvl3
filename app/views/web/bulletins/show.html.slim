@@ -6,7 +6,8 @@
     h2 = @bulletin.title
     .row
       .col-8
-        p Image
+        - if @bulletin.image.representable?
+          = image_tag(@bulletin.image, class: 'img-fluid')
       .col-4
         = @bulletin.user.email
       .col-12

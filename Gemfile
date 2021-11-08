@@ -76,3 +76,7 @@ gem 'omniauth-rails_csrf_protection'
 gem 'flash_rails_messages'
 
 gem 'enumerize'
+
+gem 'active_storage_validations'
+gem 'aws-sdk-s3'
+gem 'image_processing'

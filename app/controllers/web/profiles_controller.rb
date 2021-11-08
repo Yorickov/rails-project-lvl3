@@ -9,7 +9,7 @@ class Web::ProfilesController < ApplicationController
 
   def update
     if current_user.update(permitted_params)
-      redirect_to profile_path, notice: t('messages.created.success')
+      redirect_to profile_path, notice: t('messages.update.success')
     else
       render :edit, status: :unprocessable_entity
     end

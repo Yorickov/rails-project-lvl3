@@ -12,6 +12,9 @@ en:
         project_name: Yorickov. Hexlet Rails project-3
 
   web:
+    home:
+      index:
+        title: Bulletins
     sessions:
       new:
         title: Sign in
@@ -35,5 +38,3 @@ en:
         title: Bulletin
       new:
         title: Create bulletin
-      indes:
-        title: Bulletins
