@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
   validates :uid, uniqueness: { scope: :provider }
 
+  has_many :bulletins, dependent: :destroy
+
   def self.from_auth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

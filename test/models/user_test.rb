@@ -10,4 +10,8 @@ class UserTest < ActiveSupport::TestCase
 
     should validate_uniqueness_of(:uid).scoped_to(:provider)
   end
+
+  context 'associations' do
+    should have_many(:bulletins)
+  end
 end
