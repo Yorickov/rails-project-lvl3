@@ -4,6 +4,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
 
+Dir[Rails.root.join('test/support/**/*.rb')].each { |f| require f }
+
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
     with.test_framework :minitest
@@ -12,6 +14,7 @@ Shoulda::Matchers.configure do |config|
 end
 
 class ActiveSupport::TestCase
+  include PunditHelper
   # Run tests in parallel with specified workers
   parallelize(workers: :number_of_processors)
 
