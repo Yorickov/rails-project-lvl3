@@ -1,0 +1,5 @@
+= simple_form_for User.new, url: url do |f|
+  = f.error_notification
+
+  = f.input :email
+  = f.button :submit, t('.sign_as_admin'), class: 'mt-3 btn btn-large btn-primary'

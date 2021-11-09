@@ -20,6 +20,8 @@ en:
         title: Sign in
         description: Via social networks
         github: Github
+      form:
+        sign_as_admin: Sign ad Admin
     users:
       new:
         title: Sign up

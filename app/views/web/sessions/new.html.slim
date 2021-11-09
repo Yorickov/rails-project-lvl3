@@ -5,6 +5,7 @@
   .col-sm-6
     .card.text-center.mb-4
       .card-body
+        = render 'form', url: session_path
         .card-text.mb-2
           small.text-muted = t('.description')
         = button_to t('.github'), '/auth/github', method: :post, class: 'btn btn-sm btn-outline-primary text-center'

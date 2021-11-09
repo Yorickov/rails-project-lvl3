@@ -5,8 +5,7 @@ class User < ApplicationRecord
 
   enumerize :role, in: %i[user admin], default: :user, predicates: true, scope: true
 
-  validates :email, :provider, :uid, presence: true
-  validates :email, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   validates :uid, uniqueness: { scope: :provider }
 
   has_many :bulletins, dependent: :destroy

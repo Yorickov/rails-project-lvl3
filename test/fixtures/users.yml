@@ -9,3 +9,7 @@ two:
   provider: github
   uid: def
   email: $LABEL@email.com
+
+admin:
+  email: $LABEL@email.com
+  role: admin

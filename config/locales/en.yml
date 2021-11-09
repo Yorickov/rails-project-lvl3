@@ -2,9 +2,11 @@ en:
   title: Bulletin Board
 
   messages:
-    welcome: "Welcome to the Board, %{user}"
-    goodbye: See you laternk
+    welcome: "Welcome to the Board, %{user}!"
+    welcome_admin: 'Welcome, admin!'
+    goodbye: See you later
     create:
       success: Created successfully
     update:
       success: Updated successfully
+    no_authenticate: You are not admin

@@ -9,7 +9,7 @@ class Web::SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should create user after login' do
+  test 'should create user after login via github' do
     setup_omniauth_mock
 
     assert_difference('User.count') do
@@ -17,13 +17,29 @@ class Web::SessionsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test 'should find user after login' do
+  test 'should find user after login via github' do
     user = users(:one)
     setup_omniauth_mock(user.uid, user.email)
 
     assert_no_difference('User.count') do
       get '/auth/:provider/callback'
     end
+  end
+
+  test 'should login via email as admin' do
+    admin = users(:admin)
+
+    post session_url, params: { user: { email: admin.email } }
+
+    assert_redirected_to root_path
+  end
+
+  test 'can not login via email as user' do
+    user = users(:one)
+
+    post session_url, params: { user: { email: user.email } }
+
+    assert_response :success
   end
 
   test 'should destroy session' do
