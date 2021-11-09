@@ -20,7 +20,25 @@ module AuthManagement
     current_user.present?
   end
 
+  def admin_signed_in?
+    current_user&.admin?
+  end
+
   def current_user
     @current_user ||= session[:user_id] && User.find_by(id: session[:user_id])
+  end
+
+  def authenticate_user!
+    return if user_signed_in?
+
+    # TODO: root_path
+    redirect_to new_session_path, notice: t('messages.no_authenticate')
+  end
+
+  def authenticate_admin!
+    return if admin_signed_in?
+
+    # TODO: root_path
+    redirect_to new_session_path, notice: t('messages.no_authorize')
   end
 end

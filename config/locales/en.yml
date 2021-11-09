@@ -9,7 +9,8 @@ en:
       success: Created successfully
     update:
       success: Updated successfully
-    no_authenticate: You are not admin
+    no_authenticate: Not authenticated
+    no_authorize: Not authorized
 
   links:
     show: Show

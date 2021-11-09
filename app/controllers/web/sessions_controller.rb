@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Web::SessionsController < ApplicationController
+class Web::SessionsController < Web::ApplicationController
   before_action :authenticate_user!, only: :destroy
 
   def new; end

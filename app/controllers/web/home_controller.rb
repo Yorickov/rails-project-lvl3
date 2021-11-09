@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Web::HomeController < ApplicationController
+class Web::HomeController < Web::ApplicationController
   def index
-    @bulletins = Bulletin.includes(:user).order(created_at: :desc)
+    @bulletins = Bulletin.includes(:user)
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Web::BulletinsController < ApplicationController
+class Web::BulletinsController < Web::ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
 
   def show

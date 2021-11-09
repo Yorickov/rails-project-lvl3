@@ -11,5 +11,11 @@ Rails.application.routes.draw do
     resource :profile, only: %i[show edit update]
 
     resources :bulletins, only: %i[show new create edit update]
+
+    namespace :admin do
+      root 'home#index'
+      resources :categories, only: %i[index new create edit update destroy]
+      resources :bulletins, only: %i[index]
+    end
   end
 end

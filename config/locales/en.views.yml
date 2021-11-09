@@ -10,8 +10,13 @@ en:
         edit_profile: Edit Profile
         add_bulletin: Add bulletin
         my_bulletins: My bulletins
+        admin_panel: Admin panel
       footer:
         project_name: Yorickov. Hexlet Rails project-3
+      nav_admin:
+        all_bulletins: All bulletins
+        all_categories: All categories
+        moderated_bullitens: Moderated bulletins
 
   web:
     home:

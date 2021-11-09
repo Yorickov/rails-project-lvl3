@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Web::ProfilesController < ApplicationController
+class Web::ProfilesController < Web::ApplicationController
   before_action :authenticate_user!
 
   def show
