@@ -10,6 +10,6 @@ Rails.application.routes.draw do
     resources :users, only: %i[new]
     resource :profile, only: %i[show edit update]
 
-    resources :bulletins, only: %i[show new create]
+    resources :bulletins, only: %i[show new create edit update]
   end
 end

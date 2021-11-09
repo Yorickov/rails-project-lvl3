@@ -1,0 +1,6 @@
+en:
+  pundit:
+    default: You are not authorized to perform this action
+    bulletin_policy:
+      edit?: You cannot edit this bulletin!
+      update?: You cannot update this bulletin!

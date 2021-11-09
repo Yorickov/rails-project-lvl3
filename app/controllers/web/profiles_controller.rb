@@ -3,7 +3,9 @@
 class Web::ProfilesController < ApplicationController
   before_action :authenticate_user!
 
-  def show; end
+  def show
+    @bulletins = current_user.bulletins
+  end
 
   def edit; end
 

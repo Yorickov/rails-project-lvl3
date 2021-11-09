@@ -10,3 +10,7 @@ en:
     update:
       success: Updated successfully
     no_authenticate: You are not admin
+
+  links:
+    show: Show
+    edit: Edit

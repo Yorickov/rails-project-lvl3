@@ -2,10 +2,13 @@
   = t('.title')
 
 .row
-  .col-sm-8
-    .card
-      .card-body
-        .card-text.mb-2
-        p = current_user.email
-
-        = link_to t('.edit_profile'), edit_profile_path, class: 'btn btn-sm btn-outline-primary me-2'
+  .col
+    table.table.table-hover.table-borderless
+      thead
+        tr
+          th scope='col' = t('.name')
+          th scope='col' = t('.state')
+          th scope='col' = t('.published_at')
+          th scope='col' = t('.actions')
+      tbody.bg-light
+        = render partial: 'web/bulletins/bulletin_short', collection: @bulletins, as: :bulletin

@@ -64,4 +64,29 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     bulletin = Bulletin.find_by(@bulletin_params)
     assert { !bulletin }
   end
+
+  test 'should get edit' do
+    login_with_user(@user)
+
+    get edit_bulletin_url(@bulletin)
+
+    assert_response :success
+  end
+
+  test 'not get edit when user not authenticated' do
+    get edit_bulletin_url(@bulletin)
+
+    assert_redirected_to new_session_path
+  end
+
+  test 'should update' do
+    login_with_user(@user)
+
+    patch bulletin_url(@bulletin), params: { bulletin: @bulletin_params }
+
+    assert_redirected_to @bulletin
+
+    @bulletin.reload
+    assert { @bulletin_params[:title] == @bulletin.title }
+  end
 end
