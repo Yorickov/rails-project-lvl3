@@ -7,7 +7,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
     @bulletin = bulletins(:one)
     @bulletin_params = {
-      title: Faker::Lorem.sentence,
+      title: Faker::Lorem.characters(number: 4),
       description: Faker::Lorem.paragraph_by_chars(number: 400),
       category_id: @bulletin.category_id
     }

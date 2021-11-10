@@ -8,8 +8,9 @@ class Bulletin < ApplicationRecord
 
   has_one_attached :image
 
-  validates :title, presence: true
-  validates :image, size: { less_than: 5.megabytes }, content_type: { in: %i[png jpg jpeg] }
+  validates :title, presence: true, length: { minimum: 3 }
+  validates :description, presence: true
+  validates :image, size: { less_than: 10.megabytes }, content_type: { in: %i[png jpg jpeg] }
 
   default_scope -> { order(created_at: :desc) }
 
