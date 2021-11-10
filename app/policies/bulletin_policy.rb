@@ -2,11 +2,30 @@
 
 class BulletinPolicy < ApplicationPolicy
   def edit?
-    update?
+    author?
   end
 
   def update?
+    # me? && author?
     author?
+  end
+
+  def moderate?
+    author? && record.may_moderate?
+  end
+
+  def archive?
+    (update? || admin?) && record.may_archive?
+  end
+
+  # TODO: remove?
+  def approve?
+    admin? && record.may_publish?
+  end
+
+  # TODO: remove?
+  def reject?
+    admin? && record.may_reject?
   end
 
   class Scope < Scope

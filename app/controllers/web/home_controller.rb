@@ -2,6 +2,6 @@
 
 class Web::HomeController < Web::ApplicationController
   def index
-    @bulletins = Bulletin.includes(:user)
+    @bulletins = Bulletin.published
   end
 end

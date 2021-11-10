@@ -89,4 +89,26 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     @bulletin.reload
     assert { @bulletin_params[:title] == @bulletin.title }
   end
+
+  test 'should moderate' do
+    login_with_user(@user)
+
+    patch moderate_bulletin_url(@bulletin)
+
+    assert_redirected_to profile_url
+
+    @bulletin.reload
+    assert { @bulletin.under_moderation? }
+  end
+
+  test 'should archive' do
+    login_with_user(@user)
+
+    patch archive_bulletin_url(@bulletin)
+
+    assert_redirected_to profile_url
+
+    @bulletin.reload
+    assert { @bulletin.archived? }
+  end
 end

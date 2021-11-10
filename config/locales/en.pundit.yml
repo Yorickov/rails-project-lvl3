@@ -4,3 +4,5 @@ en:
     bulletin_policy:
       edit?: You cannot edit this bulletin!
       update?: You cannot update this bulletin!
+      moderate?: You cannot moderate this bulletin!
+      archive?: You cannot archive this bulletin!

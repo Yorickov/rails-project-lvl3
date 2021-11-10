@@ -13,8 +13,17 @@ en:
       success: Destroy successfully
     no_authenticate: Not authenticated
     no_authorize: Not authorized
+    moderate: Sent to moderation
+    archive: Sent to archive
+    publish: Published
+    reject: Rejected
+    confirm_action: Are you shure?
 
   links:
     show: Show
     edit: Edit
     destroy: Destroy
+    archive: Archive
+    moderate: Moderate
+    approve: Approve
+    reject: Reject

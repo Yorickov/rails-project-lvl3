@@ -82,3 +82,5 @@ gem 'aws-sdk-s3'
 gem 'image_processing'
 
 gem 'pundit'
+
+gem 'aasm'

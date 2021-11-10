@@ -5,4 +5,4 @@ tr.position-relative
     = category.name
   td
     = link_to t('links.edit'), edit_admin_category_path(category), class: 'btn btn-sm btn-primary me-2'
-    = link_to t('links.destroy'), admin_category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger me-2'
+    = link_to t('links.destroy'), admin_category_path(category), method: :delete, data: { confirm: t('messages.confirm_action') }, class: 'btn btn-sm btn-danger me-2'

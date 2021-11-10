@@ -56,7 +56,8 @@ en:
         index:
           title: All bulletins
       home:
-        title: Bulletins on moderation
+        index:
+          title: Bulletins on moderation
       categories:
         index:
           title: Category

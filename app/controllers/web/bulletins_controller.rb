@@ -36,6 +36,22 @@ class Web::BulletinsController < Web::ApplicationController
     end
   end
 
+  def moderate
+    bulletin = Bulletin.find(params[:id])
+    authorize bulletin
+    bulletin.moderate!
+
+    redirect_to profile_path, notice: t('messages.moderate')
+  end
+
+  def archive
+    bulletin = Bulletin.find(params[:id])
+    authorize bulletin
+    bulletin.archive!
+
+    redirect_to profile_path, notice: t('messages.archive')
+  end
+
   private
 
   def permitted_params
