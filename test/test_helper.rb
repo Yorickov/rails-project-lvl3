@@ -34,4 +34,8 @@ class ActiveSupport::TestCase
     setup_omniauth_mock(user.uid, user.email)
     get '/auth/:provider/callback'
   end
+
+  def login_with_admin(admin)
+    post session_url, params: { user: { email: admin.email } }
+  end
 end

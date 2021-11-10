@@ -1,4 +1,6 @@
-nav.nav.flex-column.nav-pills.nav-fill
-  a.nav-link.active aria-current="page" href="#" = t('.moderated_bullitens')
-  a.nav-link href="#" = t('.all_bulletins')
-  a.nav-link href="#" = t('.all_categories')
+ul.nav.flex-column.nav-pills
+  li.nav-item
+    = link_to t('.moderated_bullitens'), admin_root_path, class: 'nav-link link-dark'
+    = link_to t('.all_bulletins'), admin_bulletins_path, class: 'nav-link link-dark'
+  li.nav-item
+    = link_to t('.all_categories'), admin_categories_path, class: 'nav-link link-dark'

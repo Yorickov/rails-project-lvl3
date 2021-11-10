@@ -1,12 +1,8 @@
 # frozen_string_literal: true
 
-class BulletinPolicy < ApplicationPolicy
-  def edit?
-    update?
-  end
-
-  def update?
-    author?
+class Admin::HomePolicy < ApplicationPolicy
+  def index
+    admin?
   end
 
   class Scope < Scope

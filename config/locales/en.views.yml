@@ -50,3 +50,17 @@ en:
         title: Bulletin
       new:
         title: Create bulletin
+
+    admin:
+      bulletins:
+        index:
+          title: All bulletins
+      home:
+        title: Bulletins on moderation
+      categories:
+        index:
+          title: Category
+        new:
+          title: New category
+        edit:
+          title: Edit category

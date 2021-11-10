@@ -4,7 +4,7 @@ module AuthManagement
   extend ActiveSupport::Concern
 
   included do
-    helper_method :current_user, :user_signed_in?
+    helper_method :current_user, :user_signed_in?, :admin_signed_in?
   end
 
   def sign_in(user)
@@ -31,14 +31,12 @@ module AuthManagement
   def authenticate_user!
     return if user_signed_in?
 
-    # TODO: root_path
-    redirect_to new_session_path, notice: t('messages.no_authenticate')
+    redirect_to root_path, notice: t('messages.no_authenticate')
   end
 
   def authenticate_admin!
     return if admin_signed_in?
 
-    # TODO: root_path
-    redirect_to new_session_path, notice: t('messages.no_authorize')
+    redirect_to root_path, notice: t('messages.no_authorize')
   end
 end

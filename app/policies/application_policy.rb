@@ -8,6 +8,16 @@ class ApplicationPolicy
     @record = record
   end
 
+  protected
+
+  def author?
+    record.user == user
+  end
+
+  def admin?
+    user.admin?
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user
@@ -18,7 +28,7 @@ class ApplicationPolicy
       scope.all
     end
 
-    private
+    protected
 
     attr_reader :user, :scope
   end

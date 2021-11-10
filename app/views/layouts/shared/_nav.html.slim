@@ -13,7 +13,8 @@ header
             li = link_to t('.my_bulletins'), profile_path, class: 'nav-link active'
             li = link_to t('.add_bulletin'), new_bulletin_path, class: 'nav-link active'
         ul.navbar-nav.ms-auto
-          li = link_to t('.admin_panel'), admin_root_path, class: 'nav-link active'
+          - if admin_signed_in?
+            li = link_to t('.admin_panel'), admin_root_path, class: 'nav-link active'
           - if user_signed_in?
             li.nav-item.active.dropdown
               a.nav-link.dropdown-toggle#navbarSessionDropdown(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false') = current_user.email

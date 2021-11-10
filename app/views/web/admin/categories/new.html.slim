@@ -1,2 +1,6 @@
-h1 Web::Admin::Categories#new
-p Find me in app/views/web/admin/categories/new.html.slim
+= content_for :title do
+  = t('.title')
+
+.row.justify-content-center
+  .col-md-10
+    = render 'form'

@@ -3,15 +3,18 @@ en:
 
   messages:
     welcome: "Welcome to the Board, %{user}!"
-    welcome_admin: 'Welcome, admin!'
+    welcome_admin: Welcome, admin!
     goodbye: See you later
     create:
       success: Created successfully
     update:
       success: Updated successfully
+    destroy:
+      success: Destroy successfully
     no_authenticate: Not authenticated
     no_authorize: Not authorized
 
   links:
     show: Show
     edit: Edit
+    destroy: Destroy

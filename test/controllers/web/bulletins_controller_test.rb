@@ -30,7 +30,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'not get new when user not authenticated' do
     get new_bulletin_url
 
-    assert_redirected_to new_session_path
+    assert_redirected_to root_path
   end
 
   test 'should create' do
@@ -59,7 +59,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'not create when user not authenticated' do
     post bulletins_url, params: { bulletin: @bulletin_params }
 
-    assert_redirected_to new_session_path
+    assert_redirected_to root_path
 
     bulletin = Bulletin.find_by(@bulletin_params)
     assert { !bulletin }
@@ -76,7 +76,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'not get edit when user not authenticated' do
     get edit_bulletin_url(@bulletin)
 
-    assert_redirected_to new_session_path
+    assert_redirected_to root_path
   end
 
   test 'should update' do

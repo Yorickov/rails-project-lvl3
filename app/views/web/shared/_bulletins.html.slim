@@ -1,19 +1,23 @@
-= content_for :title do
-  = t('.title')
-
 .row
   .col
     table.table.table-hover.table-borderless
       thead
         tr
           th scope='col' = t('.name')
+          th scope='col' = t('.state')
           th scope='col' = t('.published_at')
           th scope='col' = t('.actions')
       tbody.bg-light
+        / = render partial: 'web/bulletins/bulletin_short', collection: @bulletins, as: :bulletin
         - @bulletins.each do |bulletin|
           tr.position-relative
             td
               = bulletin.title
             td
+              | State
+            td
               = time_ago(bulletin.created_at)
             td
+              = link_to t('links.show'), bulletin_path(bulletin), class: 'me-2'
+              - if user_signed_in? && policy(bulletin).update?
+                = link_to t('links.edit'), edit_bulletin_path(bulletin), class: 'me-2'

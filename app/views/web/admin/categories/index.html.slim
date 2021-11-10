@@ -1,2 +1,11 @@
-h1 Web::Admin::Categories#index
-p Find me in app/views/web/admin/categories/index.html.slim
+.row
+  .col
+    p = link_to t('add_category'), new_admin_category_path, class: 'btn btn-primary'
+    table.table.table-hover.table-borderless
+      thead
+        tr
+          th scope='col' = t('.id')
+          th scope='col' = t('.name')
+          th scope='col' = t('.actions')
+      tbody.bg-light
+        = render @categories
