@@ -2,6 +2,7 @@
 
 class Web::HomeController < Web::ApplicationController
   def index
-    @bulletins = Bulletin.published.page params[:page]
+    @query = Bulletin.published.ransack(params[:q])
+    @bulletins = @query.result(distinct: true).page params[:page]
   end
 end

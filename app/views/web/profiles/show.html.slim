@@ -1,6 +1,9 @@
 = content_for :title do
   = t('.title')
 
+= render 'search_form'
+
 = render partial: 'web/shared/bulletins'
+
 .row
   = paginate @bulletins, theme: 'bootstrap-5'

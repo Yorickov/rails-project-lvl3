@@ -1,0 +1,11 @@
+.row.align-items-center.gx-2
+  .col-auto
+    = link_to t('form.clear'), {}, class: 'btn btn-sm text-light bg-dark rounded-3'
+  .col
+    = search_form_for @query, url: profile_path, class: 'row gx-2 gy-3 align-items-center' do |f|
+      .col-auto
+        = f.submit class: 'btn btn-sm btn-dark'
+      .col-6
+         = f.search_field :title_cont, class: 'form-control', placeholder: t('form.search_title')
+      .col.ms-2
+        = f.select :state_in, Bulletin.aasm.states, { include_blank: t('form.search_states') }, class: 'form-select'

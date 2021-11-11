@@ -3,7 +3,7 @@
 class Bulletin < ApplicationRecord
   include AASM
 
-  DEFAULT_PAGINAION = 1
+  DEFAULT_PAGINAION = 5
 
   belongs_to :category
   belongs_to :user
@@ -18,7 +18,7 @@ class Bulletin < ApplicationRecord
 
   paginates_per DEFAULT_PAGINAION
 
-  aasm :state, column: :state do
+  aasm column: :state do
     state :draft, initial: true
     state :under_moderation
     state :published

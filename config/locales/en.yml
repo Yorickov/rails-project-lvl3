@@ -27,3 +27,9 @@ en:
     moderate: Moderate
     approve: Approve
     reject: Reject
+
+  form:
+    search_title: Search by title
+    search_categories: All categories
+    clear: reset
+    search_states: States

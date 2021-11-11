@@ -87,3 +87,5 @@ gem 'aasm'
 
 gem 'bootstrap5-kaminari-views'
 gem 'kaminari'
+
+gem 'ransack', github: 'activerecord-hackery/ransack'

@@ -4,7 +4,8 @@ class Web::ProfilesController < Web::ApplicationController
   before_action :authenticate_user!
 
   def show
-    @bulletins = current_user.bulletins.page params[:page]
+    @query = current_user.bulletins.ransack(params[:q])
+    @bulletins = @query.result(distinct: true).page params[:page]
   end
 
   def edit; end

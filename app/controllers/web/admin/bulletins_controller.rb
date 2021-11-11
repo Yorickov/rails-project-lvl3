@@ -2,7 +2,8 @@
 
 class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def index
-    @bulletins = Bulletin.page params[:page]
+    @query = Bulletin.ransack(params[:q])
+    @bulletins = @query.result(distinct: true).page params[:page]
   end
 
   def archive
