@@ -36,7 +36,9 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'should create' do
     login_with_user(@user)
 
-    post bulletins_url, params: { bulletin: @bulletin_params }
+    post bulletins_url, params: {
+      bulletin: @bulletin_params.merge(image: fixture_file_upload('auto_1.jpeg', 'image/jpeg'))
+    }
 
     assert_redirected_to profile_path
 

@@ -12,7 +12,8 @@ class Bulletin < ApplicationRecord
 
   validates :title, presence: true, length: { minimum: 3 }
   validates :description, presence: true
-  validates :image, size: { less_than: 10.megabytes }, content_type: { in: %i[png jpg jpeg] }
+  validates :image, attached: true
+  # validates :image, size: { less_than: 10.megabytes }, content_type: { in: %i[png jpg jpeg] }
 
   default_scope -> { includes(:user, :category).order(created_at: :desc) }
 
