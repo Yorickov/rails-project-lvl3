@@ -19,8 +19,11 @@
             td
               / TODO: remove policy? AND replace to state_may?
               - if policy(bulletin).approve?
-                = link_to t('links.approve'), edit_bulletin_path(bulletin), class: 'me-2'
-              - if policy(bulletin).moderate?
-                = link_to t('links.reject'), moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
+                = link_to t('links.approve'), approve_admin_bulletin_path(bulletin), method: :patch, class: 'me-2'
+              - if policy(bulletin).reject?
+                = link_to t('links.reject'), reject_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('messages.confirm_action') }, class: 'me-2'
               - if policy(bulletin).archive?
-                = link_to t('links.archive'), archive_bulletin_path(bulletin), method: :patch, data: { confirm: t('messages.confirm_action') }, class: 'me-2'
+                = link_to t('links.archive'), archive_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('messages.confirm_action') }, class: 'me-2'
+
+.row
+  = paginate @bulletins, theme: 'bootstrap-5'

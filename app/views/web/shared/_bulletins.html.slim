@@ -8,7 +8,6 @@
           th scope='col' = t('.published_at')
           th scope='col' = t('.actions')
       tbody.bg-light
-        / = render partial: 'web/bulletins/bulletin_short', collection: @bulletins, as: :bulletin
         - @bulletins.each do |bulletin|
           tr.position-relative
             td
@@ -20,14 +19,10 @@
             td
               = link_to t('links.show'), bulletin_path(bulletin), class: 'me-2'
 
-              - if user_signed_in? && !admin_signed_in?
+              - if user_signed_in?
                 - if policy(bulletin).update?
                   = link_to t('links.edit'), edit_bulletin_path(bulletin), class: 'me-2'
                 - if policy(bulletin).moderate?
                   = link_to t('links.moderate'), moderate_bulletin_path(bulletin), method: :patch, class: 'me-2'
                 - if policy(bulletin).archive?
                   = link_to t('links.archive'), archive_bulletin_path(bulletin), method: :patch, data: { confirm: t('messages.confirm_action') }, class: 'me-2'
-
-              - if admin_signed_in?
-                - if policy(bulletin).archive?
-                  = link_to t('links.archive'), archive_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('messages.confirm_action') }, class: 'me-2'

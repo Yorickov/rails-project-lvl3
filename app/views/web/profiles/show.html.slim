@@ -2,3 +2,5 @@
   = t('.title')
 
 = render partial: 'web/shared/bulletins'
+.row
+  = paginate @bulletins, theme: 'bootstrap-5'

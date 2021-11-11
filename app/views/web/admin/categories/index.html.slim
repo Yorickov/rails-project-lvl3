@@ -9,3 +9,6 @@
           th scope='col' = t('.actions')
       tbody.bg-light
         = render @categories
+
+.row
+  = paginate @categories, theme: 'bootstrap-5'

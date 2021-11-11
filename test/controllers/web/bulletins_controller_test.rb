@@ -38,7 +38,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
 
     post bulletins_url, params: { bulletin: @bulletin_params }
 
-    assert_response :redirect
+    assert_redirected_to profile_path
 
     bulletin = Bulletin.find_by(@bulletin_params)
     assert { bulletin }
@@ -84,7 +84,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
 
     patch bulletin_url(@bulletin), params: { bulletin: @bulletin_params }
 
-    assert_redirected_to @bulletin
+    assert_redirected_to profile_path
 
     @bulletin.reload
     assert { @bulletin_params[:title] == @bulletin.title }

@@ -2,7 +2,7 @@
 
 class Web::Admin::BulletinsController < Web::Admin::ApplicationController
   def index
-    @bulletins = Bulletin.includes(:user).all
+    @bulletins = Bulletin.page params[:page]
   end
 
   def archive
@@ -23,6 +23,6 @@ class Web::Admin::BulletinsController < Web::Admin::ApplicationController
     bulletin = Bulletin.find(params[:id])
     bulletin.reject!
 
-    redirect_to admin_root_path, notice: t('messages.reject ')
+    redirect_to admin_root_path, notice: t('messages.reject')
   end
 end

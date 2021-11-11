@@ -1,5 +1,7 @@
 = content_for :title do
   = t('.title')
 
-.row.row-cols-1.row-cols-md-3.g-4
+.row.my-3.row-cols-1.row-cols-md-3.g-4
   = render @bulletins
+.row
+  = paginate @bulletins, theme: 'bootstrap-5'

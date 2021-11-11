@@ -14,7 +14,7 @@ class Web::BulletinsController < Web::ApplicationController
   def create
     @bulletin = current_user.bulletins.build(permitted_params)
     if @bulletin.save
-      redirect_to @bulletin, notice: t('messages.create.success')
+      redirect_to profile_path, notice: t('messages.create.success')
     else
       render :new, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class Web::BulletinsController < Web::ApplicationController
     authorize @bulletin
 
     if @bulletin.update(permitted_params)
-      redirect_to @bulletin, notice: t('messages.update.success')
+      redirect_to profile_path, notice: t('messages.update.success')
     else
       render :edit, status: :unprocessable_entity
     end

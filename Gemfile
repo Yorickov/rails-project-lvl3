@@ -84,3 +84,6 @@ gem 'image_processing'
 gem 'pundit'
 
 gem 'aasm'
+
+gem 'bootstrap5-kaminari-views'
+gem 'kaminari'

@@ -2,6 +2,6 @@
 
 class Web::HomeController < Web::ApplicationController
   def index
-    @bulletins = Bulletin.published
+    @bulletins = Bulletin.published.page params[:page]
   end
 end

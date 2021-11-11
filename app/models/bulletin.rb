@@ -3,6 +3,8 @@
 class Bulletin < ApplicationRecord
   include AASM
 
+  DEFAULT_PAGINAION = 1
+
   belongs_to :category
   belongs_to :user
 
@@ -12,7 +14,9 @@ class Bulletin < ApplicationRecord
   validates :description, presence: true
   validates :image, size: { less_than: 10.megabytes }, content_type: { in: %i[png jpg jpeg] }
 
-  default_scope -> { order(created_at: :desc) }
+  default_scope -> { includes(:user, :category).order(created_at: :desc) }
+
+  paginates_per DEFAULT_PAGINAION
 
   aasm :state, column: :state do
     state :draft, initial: true
@@ -22,7 +26,7 @@ class Bulletin < ApplicationRecord
     state :archived
 
     event :moderate do
-      transitions from: %i[draft rejected], to: :under_moderation
+      transitions from: %i[draft], to: :under_moderation
     end
 
     event :publish do

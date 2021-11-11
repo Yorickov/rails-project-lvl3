@@ -1,4 +1,31 @@
 = content_for :title do
   = t('.title')
 
-= render 'web/shared/bulletins'
+/ = render 'web/shared/bulletins'
+
+.row
+  .col
+    table.table.table-hover.table-borderless
+      thead
+        tr
+          th scope='col' = t('.name')
+          th scope='col' = t('.state')
+          th scope='col' = t('.published_at')
+          th scope='col' = t('.actions')
+      tbody.bg-light
+        - @bulletins.each do |bulletin|
+          tr.position-relative
+            td
+              = bulletin.title
+            td
+              = bulletin.state
+            td
+              = time_ago(bulletin.created_at)
+            td
+              = link_to t('links.show'), bulletin_path(bulletin), class: 'me-2'
+
+              - if policy(bulletin).archive?
+                = link_to t('links.archive'), archive_admin_bulletin_path(bulletin), method: :patch, data: { confirm: t('messages.confirm_action') }, class: 'me-2'
+
+.row
+  = paginate @bulletins, theme: 'bootstrap-5'
