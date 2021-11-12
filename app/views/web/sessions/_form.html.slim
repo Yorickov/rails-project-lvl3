@@ -3,3 +3,7 @@
 
   = f.input :email
   = f.button :submit, t('.sign_as_admin'), class: 'mt-3 btn btn-large btn-primary'
+
+  .card-text.mb-2
+    small.text-muted = t('.description')
+  = link_to t('.github'), auth_request_path, method: :post, class: 'btn btn-sm btn-outline-primary text-center'
