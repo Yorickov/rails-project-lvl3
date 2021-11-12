@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   extend Enumerize
 
-  enumerize :role, in: %i[user admin], default: :user, predicates: true, scope: true
+  # enumerize :role, in: %i[user admin], default: :user, predicates: true, scope: true
 
   validates :email, presence: true, uniqueness: true
   validates :uid, uniqueness: { scope: :provider }

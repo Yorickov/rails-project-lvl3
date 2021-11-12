@@ -12,4 +12,4 @@ two:
 
 admin:
   email: $LABEL@email.com
-  role: admin
+  admin: true
