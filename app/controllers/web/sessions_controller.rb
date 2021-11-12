@@ -16,13 +16,6 @@ class Web::SessionsController < Web::ApplicationController
     end
   end
 
-  def github
-    user = User.from_auth(request.env['omniauth.auth'])
-    sign_in(user)
-
-    redirect_to root_path, notice: t('messages.welcome', user: user.email)
-  end
-
   def destroy
     sign_out
 

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   scope module: :web do
     root 'bulletins#index'
 
-    get '/auth/github/callback', to: 'sessions#github', as: 'callback_auth'
+    get '/auth/github/callback', to: 'auth#github', as: 'callback_auth'
     resource :session, only: %i[new create destroy]
 
     resources :users, only: %i[new]
