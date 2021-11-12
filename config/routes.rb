@@ -2,15 +2,15 @@
 
 Rails.application.routes.draw do
   scope module: :web do
-    root 'home#index'
+    root 'bulletins#index'
 
-    get '/auth/:provider/callback', to: 'sessions#github'
+    get '/auth/github/callback', to: 'sessions#github', as: 'callback_auth'
     resource :session, only: %i[new create destroy]
 
     resources :users, only: %i[new]
     resource :profile, only: %i[show edit update]
 
-    resources :bulletins, only: %i[show new create edit update] do
+    resources :bulletins, only: %i[index show new create edit update] do
       member do
         patch :moderate
         patch :archive

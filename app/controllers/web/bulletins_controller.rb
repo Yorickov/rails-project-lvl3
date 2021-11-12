@@ -3,6 +3,11 @@
 class Web::BulletinsController < Web::ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
 
+  def index
+    @query = Bulletin.published.ransack(params[:q])
+    @bulletins = @query.result(distinct: true).page params[:page]
+  end
+
   def show
     @bulletin = Bulletin.find(params[:id])
   end

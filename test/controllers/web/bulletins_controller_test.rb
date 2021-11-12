@@ -13,6 +13,12 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     }
   end
 
+  test 'should get index' do
+    get root_url
+
+    assert_response :success
+  end
+
   test 'should get show' do
     get bulletin_url(@bulletin)
 

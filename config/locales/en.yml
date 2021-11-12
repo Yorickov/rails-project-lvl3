@@ -31,5 +31,5 @@ en:
   form:
     search_title: Search by title
     search_categories: All categories
-    clear: reset
+    clear: Reset
     search_states: States

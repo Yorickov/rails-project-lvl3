@@ -13,7 +13,7 @@ class Web::SessionsControllerTest < ActionDispatch::IntegrationTest
     setup_omniauth_mock
 
     assert_difference('User.count') do
-      get '/auth/:provider/callback'
+      get callback_auth_url
     end
   end
 
@@ -22,7 +22,7 @@ class Web::SessionsControllerTest < ActionDispatch::IntegrationTest
     setup_omniauth_mock(user.uid, user.email)
 
     assert_no_difference('User.count') do
-      get '/auth/:provider/callback'
+      get callback_auth_url
     end
   end
 
