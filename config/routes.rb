@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     root 'bulletins#index'
 
     match '/auth/github/callback', to: 'auth#github', as: 'callback_auth', via: :all
-    post '/auth/github', to: 'auth#request', as: 'auth_request'
+    post '/auth/github', to: redirect('/auth/github'), as: 'auth_request'
     resource :session, only: %i[new create destroy]
 
     resources :users, only: %i[new]
