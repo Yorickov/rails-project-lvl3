@@ -1,13 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  provider: github
-  uid: abc
   email: $LABEL@email.com
 
 two:
-  provider: github
-  uid: def
   email: $LABEL@email.com
 
 admin:
