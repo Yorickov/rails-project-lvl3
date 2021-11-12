@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     root 'bulletins#index'
 
     get '/auth/github/callback', to: 'auth#github', as: 'callback_auth'
+    post '/auth/github', to: 'any#any', as: 'auth_github'
     resource :session, only: %i[new create destroy]
 
     resources :users, only: %i[new]
