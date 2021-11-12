@@ -13,5 +13,4 @@
         .card-text.mb-2
           small.text-muted = t('.description')
 
-        = button_to t('.github'), '/auth/github', method: :post, class: 'btn btn-sm btn-outline-primary text-center'
-
+        = button_to t('.github'), auth_request_path, method: :post, class: 'btn btn-sm btn-outline-primary text-center'
